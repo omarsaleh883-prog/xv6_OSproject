@@ -5,14 +5,17 @@
 int
 main(int argc, char *argv[])
 {
-   if (argc != 2) {
-        printf("sleep uses two args\n");
-        exit(1);
-    }
-int time = atoi(argv[1]);
-sleep(time);
+  if (argc != 2) {
+    fprintf(2, "Usage: sleep <ticks>\n");
+    exit(1);
+  }
 
+  int ticks = atoi(argv[1]);
+  if (ticks < 0) {
+    fprintf(2, "sleep: number of ticks must be positive\n");
+    exit(1);
+  }
 
-
-
+  sleep(ticks); // call the system call
+  exit(0);
 }

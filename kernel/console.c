@@ -30,6 +30,7 @@
 // called by printf(), and to echo input characters,
 // but not from write().
 //
+
 void
 consputc(int c)
 {
@@ -131,14 +132,14 @@ consoleread(int user_dst, uint64 dst, int n)
 // uartintr() calls this for input character.
 // do erase/kill processing, append to cons.buf,
 // wake up consoleread() if a whole line has arrived.
-int keyboard_int_cnt=0;
+//
+int kbd_intr_count = 0;
 void
-
-
 consoleintr(int c)
 {
   acquire(&cons.lock);
-  keyboard_int_cnt++;
+  ++kbd_intr_count;
+
   switch(c){
   case C('P'):  // Print process list.
     procdump();

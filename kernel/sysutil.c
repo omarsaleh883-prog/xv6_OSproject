@@ -1,10 +1,9 @@
 #include "types.h"
 
+extern int kbd_intr_count;
 
-
-
-
-extern int keyboard_int_cnt ;
-uint64 sys_kbdint(){
-return  keyboard_int_cnt;
+uint64
+sys_kbdint(void)
+{
+  return kbd_intr_count;
 }

@@ -1,4 +1,5 @@
 struct stat;
+struct rtcdate;
 
 // system calls
 int fork(void);
@@ -23,6 +24,9 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int kbdint(void);
+int count(void);
+int datetime(struct rtcdate*);
+
 
 // ulib.c
 int stat(const char*, struct stat*);
