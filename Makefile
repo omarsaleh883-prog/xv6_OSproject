@@ -29,7 +29,8 @@ OBJS = \
   $K/kernelvec.o \
   $K/plic.o \
   $K/virtio_disk.o\
-  $K/sysutil.o
+  $K/sysutil.o\
+  $K/random.o\
 
 # riscv64-unknown-elf- or riscv64-linux-gnu-
 # perhaps in /opt/riscv/bin
@@ -151,7 +152,8 @@ UPROGS=\
 	$U/_write\
 	$U/_tail\
 	$U/_diff\
-	$U/_wc
+	$U/_wc\
+	$U/_randomtest\
 
 
 

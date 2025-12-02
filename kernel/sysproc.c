@@ -91,3 +91,14 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+static unsigned int rng_seed = 1;  // Start with a fixed seed
+
+int
+sys_random(void)
+{
+  struct proc *p = myproc();
+  // LCG: seed = seed * a + c  (wraps naturally for uint)
+  // constants chosen: a = 1664525, c = 1013904223
+  p->rand_seed = (uint)((uint)p->rand_seed * 1664525u + 1013904223u);
+  return (int)p->rand_seed;  // return as signed int (userland can cast/interpret)
+}
