@@ -104,6 +104,7 @@ extern uint64 sys_close(void);
 extern uint64 sys_kbdint(void);
 extern uint64 sys_count(void);
 extern uint64 sys_datetime(void);
+extern uint64 sys_uptime(void);
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -132,6 +133,7 @@ static uint64 (*syscalls[])(void) = {
 [SYS_kbdint]  sys_kbdint,
 [SYS_count]   sys_count,
 [SYS_datetime] sys_datetime,
+[SYS_uptime]    sys_uptime,
 };
 
 
